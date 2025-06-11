@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Portfolio - Muhammad Ho'il Firmansah</title>
+  <style>
+    /* CSS Variables for Dark Theme colors and fonts */
+    :root {
+      --bg-color: #121212;
+      --text-color: #cbd5e1;
+      --heading-color: #e0e7ff;
+      --primary-color: #e0e7ff;
+      --primary-hover: #a5b4fc;
+      --accent-color: #7dd3fc;
+      --accent-hover: #38bdf8;
+      --card-bg: #1e1e2f;
+      --border-radius: 0.75rem;
+      --transition-speed: 0.3s;
+      --max-width: 1200px;
+      --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+        Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+        Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    /* Reset and base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: var(--font-body);
+      font-size: 18px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: color var(--transition-speed) ease;
+    }
+    a:hover,
+    a:focus {
+      color: var(--accent-hover);
+      outline: none;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* Header / Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      background-color: #17171fd0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.658);
+      z-index: 100;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1rem 1rem;
+    }
+    .logo {
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: var(--primary-color);
+      user-select: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    .nav-links a {
+      font-weight: 600;
+      color: var(--primary-color);
+      padding: 0.25rem;
+      border-radius: var(--border-radius);
+      transition: background-color var(--transition-speed) ease;
+    }
+    .nav-links a:hover,
+    .nav-links a:focus {
+      background-color: #2a2a3c;
+      outline: none;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 5rem 1rem 6rem;
+      background: linear-gradient(135deg, #90acff 0%, #001644 100%);
+      color: var(--heading-color);
+      border-radius: var(--border-radius);
+      margin: 2rem auto;
+      max-width: 90%;
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.65);
+      user-select: none;
+    }
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.1;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 650px;
+      margin: 0 auto 2.5rem;
+      color: #e0e7ffdd;
+      font-weight: 500;
+    }
+    .btn-primary {
+      background-color: var(--heading-color);
+      color: #1e40af;
+      font-weight: 700;
+      padding: 1rem 2.5rem;
+      border: none;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      font-size: 1.125rem;
+      transition: background-color var(--transition-speed) ease, transform 0.2s ease;
+      box-shadow: 0 8px 15px rgba(224, 231, 255, 0.75);
+      user-select: none;
+    }
+    .btn-primary:hover,
+    .btn-primary:focus {
+      background-color: #c7d2fe;
+      color: #1e3a8a;
+      transform: scale(1.05);
+      outline: none;
+    }
+
+    /* Profile photo with circular border */
+    .profile-photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid var(--bg-color);
+      box-shadow: 0 8px 20px rgba(255, 255, 255, 0.589);
+      margin: 0 auto 1.5rem;
+      display: block;
+    }
+
+    /* Sections spacing */
+    section {
+      padding: 4rem 1rem 5rem;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    h2.section-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 2.75rem;
+      color: var(--heading-color);
+      text-align: center;
+      margin-bottom: 3rem;
+      user-select: none;
+    }
+
+    /* About Section */
+    .about {
+      max-width: 900px;
+      margin: 0 auto;
+      color: var(--text-color);
+      font-size: 1.125rem;
+      line-height: 1.7;
+      background: linear-gradient(135deg, #8b9ed8 0%, #001644 100%);
+      padding: 2.5rem 3rem;
+      border-radius: var(--border-radius);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.7);
+      user-select: text;
+    }
+
+    /* Experience Section */
+    .experience-list {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 2.5rem;
+    }
+    .experience-card {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      padding: 1.75rem 2rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.65);
+      display: flex;
+      flex-direction: column;
+      transition: transform var(--transition-speed) ease;
+      color: var(--text-color);
+      user-select: text;
+    }
+    .experience-card:hover,
+    .experience-card:focus-within {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.85);
+      outline: none;
+    }
+    .experience-card h3 {
+      font-weight: 700;
+      font-size: 1.25rem;
+      margin-bottom: 0.25rem;
+      color: var(--heading-color);
+      user-select: none;
+    }
+    .experience-card .company {
+      font-weight: 600;
+      color: var(--accent-color);
+      margin-bottom: 0.5rem;
+      user-select: none;
+    }
+    .experience-card .duration {
+      font-size: 0.875rem;
+      font-style: italic;
+      margin-bottom: 1rem;
+      color: #94a3b8;
+      user-select: none;
+    }
+    .experience-card p {
+      flex-grow: 1;
+      color: var(--text-color);
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+    .experience-card img.exp-photo {
+      width: 100%;
+      height: 140px;
+      border-radius: var(--border-radius);
+      object-fit: cover;
+      margin-bottom: 1rem;
+      user-select: none;
+      box-shadow: 0 8px 15px rgba(37, 99, 235, 0.45);
+    }
+
+    /* Skills Section */
+    .skills {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    .skill {
+      background: #293144;
+      border-radius: var(--border-radius);
+      padding: 0.75rem 1.25rem;
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--accent-color);
+      box-shadow: 0 3px 8px rgba(37, 99, 235, 0.5);
+      transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+      cursor: default;
+      user-select: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      max-width: 220px;
+    }
+    .skill:hover {
+      background-color: var(--accent-color);
+      color: #121212;
+      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.9);
+    }
+    .skill-description {
+      font-weight: 400;
+      font-size: 0.85rem;
+      color: #94a3b8;
+      user-select: text;
+      margin-left: 2px;
+    }
+
+    /* Contact Section */
+    .contact {
+      max-width: 600px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+      padding: 2.5rem 3rem 3rem;
+      user-select: text;
+    }
+    .contact form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .contact label {
+      font-weight: 600;
+      color: var(--heading-color);
+      user-select: none;
+    }
+    .contact input,
+    .contact textarea {
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      border-radius: var(--border-radius);
+      border: 1.5px solid #3b4261;
+      background-color: #252944;
+      color: var(--text-color);
+      resize: vertical;
+      transition: border-color var(--transition-speed) ease;
+      user-select: text;
+    }
+    .contact input::placeholder,
+    .contact textarea::placeholder {
+      color: #94a3b8cc;
+    }
+    .contact input:focus,
+    .contact textarea:focus {
+      outline: none;
+      border-color: var(--accent-color);
+      box-shadow: 0 0 8px var(--accent-color);
+    }
+    .contact button {
+      align-self: flex-start;
+      background-color: var(--accent-color);
+      color: var(--bg-color);
+      font-weight: 700;
+      padding: 1rem 2.5rem;
+      border: none;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      font-size: 1.125rem;
+      transition: background-color var(--transition-speed) ease, transform 0.2s ease;
+      box-shadow: 0 6px 12px rgba(37, 99, 235, 0.6);
+      user-select: none;
+    }
+    .contact button:hover,
+    .contact button:focus {
+      background-color: var(--accent-hover);
+      transform: scale(1.05);
+      outline: none;
+    }
+
+    /* Social Icons inside Contact Section */
+    .social-icons-contact {
+      margin-top: 0.5rem;
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    .social-icons-contact a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-size: 1.75rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: color var(--transition-speed) ease;
+    }
+    .social-icons-contact a:hover,
+    .social-icons-contact a:focus {
+      color: var(--accent-hover);
+      outline: var(--accent-hover);
+    }
+    .social-icons-contact svg {
+      width: 28px;
+      height: 28px;
+      fill: currentColor;
+      vertical-align: middle;
+      user-select: none;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: #94a3b8;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      user-select: none;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      .nav-links {
+        gap: 1rem;
+      }
+      .experience-list {
+        grid-template-columns: 1fr;
+      }
+      .skills {
+        justify-content: center;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+      }
+      .skills::-webkit-scrollbar {
+        height: 6px;
+      }
+      .skills::-webkit-scrollbar-thumb {
+        background-color: var(--accent-color);
+        border-radius: 3px;
+      }
+      .social-icons-contact {
+        gap: 1rem;
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header role="banner">
+    <nav role="navigation" aria-label="Primary">
+      <a href="#hero" class="logo" tabindex="0">M.H.F</a>
+      <div class="nav-links">
+        <a href="#about" tabindex="0">About</a>
+        <a href="#experience" tabindex="0">Experience</a>
+        <a href="#skills" tabindex="0">Skills</a>
+        <a href="#contact" tabindex="0">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <section id="hero" class="hero" aria-label="Introduction">
+      <img
+        src="images/Foto.jpeg"
+        alt="Photo of Muhammad Ho'il Firmansah"
+        class="profile-photo"
+      />
+      <h1>Hi, I'm Muhammad Ho'il Firmansah.</h1>
+      <p>Network Engineer, System Administrator, and DevOps Practitioner with 5+ years of experience driving railway industry projects including DMU Philippines, KA Feeder Jakarta-Bandung, LRT Jabodebek, and Kereta Commuter Indonesia. Passionate about Network Security, DevOps, and DevSecOps.</p>
+      <button
+        class="btn-primary"
+        onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"
+        aria-label="Contact Me"
+      >Contact Me</button>
+    </section>
+
+    <section id="about" aria-labelledby="about-title">
+      <h2 id="about-title" class="section-title">About Me</h2>
+      <div class="about">
+        <p>I am a dedicated Network Engineer and System Administrator skilled in managing Linux Ubuntu Server and Windows Server environments, with a strong background working in the railway industry at PT Respati Solusi Teknologi. Over the past 5 years, I have contributed to mission-critical infrastructure projects, ensuring high availability and security.</p>
+        <p>Recently, I have been expanding my expertise in network security, DevOps, and DevSecOps to build more resilient and automated systems. Besides my professional work, I passionately pursue hobbies in UI/UX design, photography, and music, which enrich my creativity and problem-solving skills.</p>
+      </div>
+    </section>
+
+    <section id="experience" aria-labelledby="experience-title">
+      <h2 id="experience-title" class="section-title">Experience & Projects</h2>
+      <div class="experience-list">
+        <article class="experience-card" tabindex="0" aria-label="Experience at DMU Philippines">
+          <img src="images/DMU_Philippines.jpg" alt="DMU Philippines project image" class="exp-photo" />
+          <h3>Network Engineer & SysAdmin</h3>
+          <div class="company">DMU Philippines</div>
+          <div class="duration">Project-based</div>
+          <p>Provided networking and system administration support ensuring uptime and security compliance for DMU rail operations in Philippines. Implemented monitoring and automation to optimize network performance.</p>
+        </article>
+
+        <article class="experience-card" tabindex="0" aria-label="Experience at KA Feeder Jakarta - Bandung">
+          <img src="images/ka_feeder.jpg" alt="KA Feeder Jakarta - Bandung project image" class="exp-photo" />
+          <h3>System Administrator & DevOps</h3>
+          <div class="company">KA Feeder Jakarta - Bandung</div>
+          <div class="duration">Project-based</div>
+          <p>Managed Linux and Windows server infrastructure supporting critical feeder rail services. Developed automation scripts and CI/CD pipelines enhancing deployment efficiency and reliability.</p>
+        </article>
+
+        <article class="experience-card" tabindex="0" aria-label="Experience at LRT Jabodebek">
+          <img src="images/lrt_jabodebek.jpg" alt="LRT Jabodebek project image" class="exp-photo" />
+          <h3>Network Engineer & DevOps Specialist</h3>
+          <div class="company">LRT Jabodebek</div>
+          <div class="duration">Project-based</div>
+          <p>Created secure network architectures and DevOps processes for Jabodebek LRT, elevating operational security while reducing incident responses.</p>
+        </article>
+
+        <article class="experience-card" tabindex="0" aria-label="Experience at Kereta Commuter Indonesia">
+          <img src="https://via.placeholder.com/400x140?text=Kereta+Commuter+Indonesia" alt="Kereta Commuter Indonesia project image" class="exp-photo" />
+          <h3>Senior Network Engineer</h3>
+          <div class="company">Kereta Commuter Indonesia</div>
+          <div class="duration">Ongoing</div>
+          <p>Overseeing network infrastructure, Linux/Windows server administration, and DevOps automation for one of Indonesia's busiest commuter rail services, ensuring seamless operations and fast incident resolution.</p>
+        </article>
+
+        <article class="experience-card" tabindex="0" aria-label="Current role at PT Respati Solusi Teknologi">
+          <img src="https://via.placeholder.com/400x140?text=PT+Respati+Solusi+Teknologi" alt="PT Respati Solusi Teknologi project image" class="exp-photo" />
+          <h3>Network Security & DevOps Engineer</h3>
+          <div class="company">PT Respati Solusi Teknologi</div>
+          <div class="duration">Current</div>
+          <p>Leading initiatives around network security, DevOps best practices, and securing automation pipelines to deliver innovative solutions aligned with modern security standards.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills" aria-labelledby="skills-title">
+      <h2 id="skills-title" class="section-title">Skills & Interests</h2>
+      <div class="skills" role="list" aria-label="Professional skills and hobbies">
+        <div class="skill" role="listitem" tabindex="0">
+          Network Engineering
+          <div class="skill-description">Passionate about designing and maintaining reliable and scalable network infrastructures.</div>
+        </div>
+        <div class="skill" role="listitem" tabindex="0">
+          Linux Ubuntu Server
+          <div class="skill-description">Experienced in deploying, monitoring, and securing Linux Ubuntu server environments.</div>
+        </div>
+        <div class="skill" role="listitem" tabindex="0">
+          Windows Server
+          <div class="skill-description">Skilled in managing and troubleshooting Windows Server systems for enterprise environments.</div>
+        </div>
+        <div class="skill" role="listitem" tabindex="0">
+          DevOps & Automation
+          <div class="skill-description">Proficient in CI/CD pipelines, infrastructure as code, and automation scripting.</div>
+        </div>
+        <div class="skill" role="listitem" tabindex="0">
+          Network Security
+          <div class="skill-description">Focused on implementing secure network architectures and ongoing risk assessments.</div>
+        </div>
+        <div class="skill" role="listitem" tabindex="0">
+          DevSecOps
+          <div class="skill-description">Integrating security practices into DevOps workflows and automation pipelines.</div>
+        </div>
+        <div class="skill" role="listitem" tabindex="0">
+          UI/UX Design
+          <div class="skill-description">Interest in crafting intuitive and visually appealing digital user experiences.</div>
+        </div>
+        <div class="skill" role="listitem" tabindex="0">
+          Photography
+          <div class="skill-description">Creative hobby exploring light, composition, and visual storytelling.</div>
+        </div>
+        <div class="skill" role="listitem" tabindex="0">
+          Music
+          <div class="skill-description">Passion for music as a form of creative and emotional expression.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title" class="section-title">Contact Me</h2>
+      <div class="social-icons-contact" aria-label="Social media and contact links">
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=muhammadhoi.sid14@gmail.com" aria-label="Email" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 
+            2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path></svg>
+        </a>
+        <a href="https://wa.me/088228197385" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19.07 4.93a10.12 10.12 0 00-7.07-3.07 
+            10 10 0 00-10 10c0 1.8.5 3.57 1.45 5.11L2 22l4.97-1.36a9.982 9.982 0 005.11 1.45 10 10 0 0010-10 
+            10.12 10.12 0 00-3.07-7.07zm-3.54 11.26l-1.01.67a1.82 1.82 0 01-1.64-.06 6.91 6.91 0 01-2.97-2.98 
+            1.81 1.81 0 01-.07-1.63l.68-1.01a.73.73 0 00-.02-.78L9.07 9.32a.66.66 0 00-.92-.22l-1.62.99a.75.75 0 00-.35.64 
+            4.54 4.54 0 002.7 3.91 4.37 4.37 0 003.49.28 1.07 1.07 0 00.6-.34l.98-1.32a.78.78 0 00-.25-1.24z"></path></svg>
+        </a>
+        <a href="https://linkedin.com/in/muhammadhoilfirmansah/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 3A2 2 0 0121 5v14a2 
+            2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14zm-9 14v-6H7v6h3zm-1.5-6.75A1.75 
+            1.75 0 1010.5 8a1.75 1.75 0 00-1.5 2.25zM17 17v-3a2 2 0 00-2-2 2 
+            2 0 00-2 2v3h3v-3h1z"></path></svg>
+        </a>
+        <a href="https://github.com/MuhammadHoil" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2C6.48 2 2 6.48 
+            2 12c0 4.41 2.87 8.15 6.84 9.48.5.09.68-.22.68-.48 
+            0-.24-.01-.87-.01-1.71-2.78.6-3.37-1.34-3.37-1.34-.46-1.17-1.11-1.48-1.11-1.48-.91-.62.07-.61.07-.61 
+            1.01.07 1.54 1.04 1.54 1.04.9 1.54 2.36 1.1 2.94.84.09-.65.35-1.1.63-1.35-2.22-.25-4.56-1.11-4.56-4.93 
+            0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02A9.562 9.562 0 0112 6.8a9.52 9.52 0 012.5.34c1.91-1.29 
+            2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 
+            0 3.83-2.34 4.68-4.57 4.92.36.31.69.92.69 1.85 0 1.33-.01 2.4-.01 2.73 
+            0 .27.18.58.69.48A10.013 10.013 0 0022 12c0-5.52-4.48-10-10-10z"></path></svg>
+        </a>
+        <a href="https://instagram.com/hoil_firman" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7.75 2h8.5A5.75 
+            5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 
+            5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 1.5A4.25 4.25 0 003.5 
+            7.75v8.5A4.25 4.25 0 007.75 20.5h8.5a4.25 4.25 0 004.25-4.25v-8.5A4.25 
+            4.25 0 0016.25 3.5h-8.5zM12 7a5 5 0 110 10 5 5 0 010-10zm0 
+            1.5a3.5 3.5 0 100 7 3.5 3.5 0 000-7zm4.75-.87a1.12 1.12 0 110 2.25 1.12 
+            1.12 0 010-2.25z"></path></svg>
+        </a>
+      </div>
+      <div class="contact">
+        <form id="contact-form" aria-label="Contact form">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required autocomplete="name" placeholder="Your full name" />
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required autocomplete="email" placeholder="Your email address" />
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required rows="5" placeholder="Write your message here..."></textarea>
+          <button type="submit" aria-label="Send message">Send</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Muhammad Ho'il Firmansah. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Basic form submission handler - prevent reload and show a thank you alert
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you for reaching out! I will get back to you soon.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>
+
